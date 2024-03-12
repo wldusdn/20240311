@@ -90,8 +90,6 @@
   grid-template-rows: 350px;
   justify-content:space-between;
 }
-.grid_content {
-}
 .grid_content_image img {
   border-radius: 10px;
 }
