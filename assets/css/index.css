@@ -8,20 +8,81 @@
   margin: 10px 10vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.header #logo:link, #logo:visited {
+  text-decoration: none;
+  color: #046307;
+  font-weight: bold;
 }
 .header ul {
   list-style: none;
   display: flex;
+  align-items: center;
 }
-.login_signup {
-  display: flex;
+.header #search_box {
+  width: 12.5rem;
+  height: 25px;
+  margin: 0px 20px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
 }
-.header a:link, .header a:visited {
+.login_signup a:link, .header a:visited {
   text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  margin: 0px 10px;
 }
 
+
+
 /* 메인 영역 */
-main {
+#promotion_area {
   background-color: antiquewhite;
-  height: 50vw;
+  height: 20vw;
+}
+#resent_post {
+  margin: 30px 20vw;
+}
+#resent_post > p {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+#resent_post_grid {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 300px;
+  justify-content:space-around;
+}
+.grid_content {
+}
+.grid_content_image img {
+  border-radius: 10px;
+}
+.grid_content_info {
+  padding: 5px;
+}
+.resent_post_title {
+  font-size: 14px;
+}
+.resent_post_price {
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.resent_post_place {
+  font-size: 12px;
+  margin-top: 5px;
+}
+/* 푸터 영역 */
+
+#footer {
+  padding: 10px 20vw;
+  background-color: #eee;
+  font-size: 12px;
 }
