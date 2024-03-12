@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>판매글 페이지</title>
+<link rel="stylesheet" href="../css/post.css">
+</head>
+<body>
+
+<div class="post-container">
+    <section class="post-image">
+        <!-- 상품 이미지 -->
+        <img src="./20240307_115900.png" alt="상품 이미지" class="product-img"/>
+    </section>
+    
+    <section class="post-author">
+        <!-- 작성자 프로필 사진 및 정보 -->
+        <img src="./20240310_072232.png" alt="작성자 프로필" class="profile-img"/>
+        <div class="author-info">
+            <span class="author-name">작성자: 홍길동</span>
+            <span class="transaction-area">거래희망지역: 부산</span>
+        </div>
+    </section>
+    
+    <h1 class="post-title">글 제목</h1>
+    
+    <section class="post-description">
+        <p>나는 말하는 감쟈...</p>
+    </section>
+    
+    <!-- 생략 -->
+
+    <section class="post-comments">
+      <!-- 댓글 입력 섹션 -->
+      <div class="comment-input">
+          <img src="./20240307_115900.png" alt="프로필 이미지" class="profile-img"/>
+          <input type="text" placeholder="댓글을 입력해주세요" class="comment-text"/>
+          <button type="button" class="comment-button">작성하기</button>
+      </div>
+      <!-- 댓글 목록 -->
+      <div class="comments-list"></div>
+  </section>
+<!-- 생략 -->
+
+    
+    <section class="popular-items">
+        <!-- 인기 매물 상품 이미지들 -->
+        <img src="./store_ticket1.jpg" alt="인기 매물1" class="item-img"/>
+        <img src="./store_best2.jpg" alt="인기 매물2" class="item-img"/>
+        <img src="./20240311_091954.png" alt="인기 매물3" class="item-img"/>
+        
+    </section>
+</div>
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('.comment-button').addEventListener('click', function () {
+        var commentInput = document.querySelector('.comment-text');
+        var commentText = commentInput.value.trim();
+        
+        if (commentText) {
+            var userName = '사용자 이름'; // 실제 사용 시 현재 로그인한 사용자의 이름으로 대체
+            var userProfileImg = 'profile-image-url.jpg'; // 실제 사용 시 현재 로그인한 사용자의 이미지 URL로 대체
+
+            // 현재 날짜 및 시간을 포맷에 맞춰 생성합니다.
+            var now = new Date();
+            var dateStr = now.getFullYear() + '년 ' + 
+                          (now.getMonth() + 1).toString().padStart(2, '0') + '월 ' + 
+                          now.getDate().toString().padStart(2, '0') + '일 ' + 
+                          now.getHours().toString().padStart(2, '0') + ':' + 
+                          now.getMinutes().toString().padStart(2, '0') + ':' + 
+                          now.getSeconds().toString().padStart(2, '0');
+            
+            // 댓글 요소 생성
+            var comment = document.createElement('div');
+            comment.classList.add('comment');
+            comment.innerHTML = `
+                <img src="${userProfileImg}" alt="${userName}" class="comment-profile-img"/>
+                <div class="comment-body">
+                    <div class="comment-author">${userName}</div>
+                    <div class="comment-content">${commentText}</div>
+                    <div class="comment-date">${dateStr}</div>
+                </div>
+            `;
+            
+            // 댓글 목록에 추가
+            var commentsList = document.querySelector('.comments-list');
+            commentsList.appendChild(comment);
+            
+            // 입력 필드 초기화
+            commentInput.value = '';
+        }
+    });
+});
+</script>
+</body>
+</html>
