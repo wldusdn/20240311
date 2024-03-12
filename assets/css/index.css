@@ -1,0 +1,27 @@
+* {
+  margin : 0px;
+  padding : 0px;
+}
+
+/* 헤더 영역 */
+.header {
+  margin: 10px 10vw;
+  display: flex;
+  justify-content: space-between;
+}
+.header ul {
+  list-style: none;
+  display: flex;
+}
+.login_signup {
+  display: flex;
+}
+.header a:link, .header a: {
+  text-decoration: none;
+}
+
+/* 메인 영역 */
+main {
+  background-color: antiquewhite;
+  height: 50vw;
+}
