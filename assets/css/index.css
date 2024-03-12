@@ -16,7 +16,7 @@
 .login_signup {
   display: flex;
 }
-.header a:link, .header a: {
+.header a:link, .header a:visited {
   text-decoration: none;
 }
 
