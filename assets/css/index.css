@@ -5,7 +5,7 @@
 
 /* 헤더 영역 */
 .header {
-  margin: 10px 10vw;
+  margin: 10px 15vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +14,11 @@
   text-decoration: none;
   color: #046307;
   font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+}
+.header #logo img{
+  width: 30px;
 }
 .header ul {
   list-style: none;
@@ -40,10 +45,36 @@
 
 
 /* 메인 영역 */
-#promotion_area {
-  background-color: antiquewhite;
-  height: 20vw;
+#promotion_cover {
+  background-color: #98FF98;
+  /* height: 20vw; */
 }
+#promotion_area {
+  margin: 0px 20vw;
+  padding: 0px 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+#promotion_title {
+  /* padding-top: 30px; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 40px;
+
+}
+#promotion_desc {
+  padding-top: 20px;
+  font-size: 14px;
+}
+#promotion_img img {
+  width:250px;
+  padding: 30px;
+}
+
+
+
 #resent_post {
   margin: 30px 20vw;
 }
@@ -55,9 +86,9 @@
 }
 #resent_post_grid {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 300px;
-  justify-content:space-around;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 350px;
+  justify-content:space-between;
 }
 .grid_content {
 }
