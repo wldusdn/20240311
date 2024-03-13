@@ -13,7 +13,13 @@ const getPost = asyncHandler(async(req,res)=>{
   const post = await Post.findById(req.params.id);
   console.log(post)
   const comments = await Comment.find({postID:{$eq:req.params.id}});
-  res.render("post", {post, comments});
+
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+
+  res.render("post", {post, comments, user});
 })
 
 // @desc Create comment
@@ -41,9 +47,13 @@ const addComment = asyncHandler(async(req,res)=>{
 
 // @desc get addPost page
 // @route GET /add
-const getPostadd = (req, res)=>{
-  res.render("addPost")
-}
+const getPostadd = asyncHandler(async (req, res)=>{
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+  res.render("addPost", {user})
+})
 
 // @desc Create post
 // @route Post /:id
@@ -90,4 +100,16 @@ const addPost = asyncHandler(async(req,res)=>{
   }
 })
 
-module.exports = {getPost, addComment, getPostadd, addPost}
+// @desc Get mypost page
+// @route GET /mypost/:id
+
+const getMyPost = asyncHandler(async(req,res)=>{
+  const user = await User.findById(req.params.id)
+  const userID = user.userID
+  console.log(userID)
+  const posts = await Post.find({user:userID})
+
+  res.render("mypost", {user,posts})
+})
+
+module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}

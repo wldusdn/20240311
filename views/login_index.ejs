@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>오이마켓</title>
-  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
   <header>
     <div class="header">
-      <a href="index.html" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+      <a href="/loginindex" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
       <ul>
         <li>
           <form action="#">
@@ -17,9 +17,9 @@
           </form>
         </li>
         <ul class="login_signup">
-          <li><a href="#">판매하기</a></li>|
-          <li><a href="#">내 판매글</a></li>|
-          <li><a href="#">로그아웃</a></li>
+          <li><a href="/post/add">판매하기</a></li>|
+          <li><a href="/post/mypost/<%= user._id %>">내 판매글</a></li>|
+          <li><a href="/logout">로그아웃</a></li>
         </ul>
       </ul>
     </div>
