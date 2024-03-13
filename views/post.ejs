@@ -11,7 +11,7 @@
 <div class="post-container">
     <section class="post-image">
         <!-- 상품 이미지 -->
-        <img src="<%= post.postimage  %>" alt="상품 이미지" class="product-img"/>
+        <img src="https://picsum.photos/id/237/50/50" alt="상품 이미지" class="product-img"/>
     </section>
     
     <section class="post-author">
@@ -27,13 +27,14 @@
     
     <section class="post-description">
         <p><%= post.description %></p>
+        <p>가격: <%= post.cost %></p>
     </section>
     
     <!-- 생략 -->
 
     <section class="post-comments">
       <!-- 댓글 입력 섹션 -->
-      <form action="/post" method="post">
+      <form action="/post/<%= post._id  %>" method="post">
       <div class="comment-input">
           <img src="https://picsum.photos/id/2/50/50" alt="프로필 이미지" class="profile-img"/>
           <input type="text" placeholder="댓글을 입력해주세요" class="comment-text" name="commentContent"/>
