@@ -173,3 +173,11 @@ body {
   font-size: 14px;
   margin: 0px 10px;
 }
+
+/* 푸터 영역 */
+
+#footer {
+  padding: 10px 20vw;
+  background-color: #ddd;
+  font-size: 12px;
+}
