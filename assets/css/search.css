@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-container {
+  width: 30vw;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  margin-top: .6rem;
+  margin-bottom: 1.2rem;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header, .footer {
+  flex: 1 0 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input-group button {
+  width: auto;
+  margin: 0;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-group button:hover {
+  background-color:firebrick;
+  color: black;
+}
+
+.signup-button {
+  background-color:lightgreen;
+  color: white;
+  font-size: 1rem;
+}
+
+.delete-button {
+  background-color:gainsboro;
+  color:ivory;
+  font-size: 1rem;
+}
+
+.product-image {
+  width: auto;
+  height: 15rem;
+  border-color: #ddd;
+  border-style: solid;
+  border-width: .125rem;
+  border-radius: .5rem;
+}
+
+.search-container {
+  width: 50vw;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: left;
+  margin-top: .6rem;
+  margin-bottom: 1.2rem;
+}
+
+.no-results {
+  text-align: left;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.no-results h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.no-results ul {
+  list-style: none;
+  padding: 0;
+}
+
+.no-results ul li {
+  margin-bottom: 5px;
+}
+
+
+/* 헤더 영역 */
+.header {
+  margin: 10px 15vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header #logo:link, #logo:visited {
+  text-decoration: none;
+  color: #046307;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+}
+.header #logo img{
+  width: 30px;
+}
+.header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header #search_box {
+  width: 12.5rem;
+  height: 25px;
+  margin: 0px 20px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.login_signup a:link, .header a:visited {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  margin: 0px 10px;
+}
