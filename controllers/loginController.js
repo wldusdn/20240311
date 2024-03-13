@@ -1,15 +1,18 @@
 const asyncHandler = require("express-async-handler");//동기
 const User = require("../models/userModel");
+const Post = require("../models/postModel");
 const bcrypt = require("bcrypt");//암호화
 require("dotenv").config();//env파일 사용
 const jwt = require("jsonwebtoken");//jwt 사용 위함
 const jwtSecret = process.env.JWT_SECRET;//secret키 가져옴
+const mongoose = require("mongoose");
 
 // @desc Get main page
 // @route GET /
-const getIndex = (req, res) => {
-  res.render("index");
-}
+const getIndex = asyncHandler(async(req, res) => {
+  const posts = await Post.find()
+  res.render("index",{posts:posts});
+})
 
 // @desc Get Login page
 // @route GET /
