@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
-const checkLogin = require("../middlewares/checkToken");
+const checkLogin = require("../middlewares/checkLogin");
 const {getPost, addComment, getPostadd, addPost} = require("../controllers/postController")
 router.use(cookieParser());
 
