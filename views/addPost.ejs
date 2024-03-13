@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="header">
-      <a href="index.html" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+      <a href="#" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
       <ul>
         <li>
           <form action="#">
@@ -17,8 +17,9 @@
           </form>
         </li>
         <ul class="login_signup">
-          <li><a href="#">로그인</a></li>|
-          <li><a href="#">회원가입</a></li>
+          <li><a href="/post/add">판매하기</a></li>|
+          <li><a href="/post/mypost/<%= user._id %>">내 판매글</a></li>|
+          <li><a href="/logout">로그아웃</a></li>
         </ul>
       </ul>
     </div>
@@ -28,7 +29,7 @@
     <form action="/post/add" method="post" id="addPost_form">
       <h2 id="addPost_form_title">판매글 작성</h2>
       <div class="addPost_input_group">
-        <label for="post_title">제목</label><input type="text" id="post_title" name="post_tilte">
+        <label for="post_title">제목</label><input type="text" id="post_title" name="post_title">
       </div>
       <div class="addPost_input_group">
         <label for="post_price">판매 가격</label>
@@ -40,10 +41,10 @@
         <label for="post_desc">자세한 설명</label><textarea id="post_desc" name="post_desc"></textarea>
       </div>
       <div class="addPost_input_group">
-        <label for="post_picture">사진 첨부하기</label><input type="file" id="post_picture">
+        <label for="post_picture">사진 첨부하기</label><input type="file" name="post_picture" id="post_picture">
       </div>
       <div class="addPost_input_group">
-        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_desc">
+        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_location">
       </div>
       <div class="addPost_input_group">
         <input type="submit" id="post_submit" value="작성 완료">

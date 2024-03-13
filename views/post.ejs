@@ -7,18 +7,34 @@
 <link rel="stylesheet" href="/css/post.css">
 </head>
 <body>
-
+    <header>
+        <div class="header">
+          <a href="#" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+          <ul>
+            <li>
+              <form action="#">
+                <input type="text" id="search_box" placeholder="물품을 검색해 보세요">
+              </form>
+            </li>
+            <ul class="login_signup">
+              <li><a href="/post/add">판매하기</a></li>|
+              <li><a href="/post/mypost/<%= user._id %>">내 판매글</a></li>|
+              <li><a href="/logout">로그아웃</a></li>
+            </ul>
+          </ul>
+        </div>
+      </header>
 <div class="post-container">
     <section class="post-image">
         <!-- 상품 이미지 -->
-        <img src="<%= post.postimage  %>" alt="상품 이미지" class="product-img"/>
+        <img src="https://picsum.photos/id/237/50/50" alt="상품 이미지" class="product-img"/>
     </section>
     
     <section class="post-author">
         <!-- 작성자 프로필 사진 및 정보 -->
         <img src="https://picsum.photos/id/237/50/50" alt="작성자 프로필" class="profile-img"/>
         <div class="author-info">
-            <span class="author-name">작성자: 홍길동</span>
+            <span class="author-name"><%= post.user %></span>
             <span class="transaction-area"><%= post.location %></span>
         </div>
     </section>
@@ -27,13 +43,14 @@
     
     <section class="post-description">
         <p><%= post.description %></p>
+        <p>가격: <%= post.cost %></p>
     </section>
     
     <!-- 생략 -->
 
     <section class="post-comments">
       <!-- 댓글 입력 섹션 -->
-      <form action="/post" method="post">
+      <form action="/post/<%= post._id  %>" method="post">
       <div class="comment-input">
           <img src="https://picsum.photos/id/2/50/50" alt="프로필 이미지" class="profile-img"/>
           <input type="text" placeholder="댓글을 입력해주세요" class="comment-text" name="commentContent"/>
@@ -66,6 +83,15 @@
     </section>
 </div>
 
+<footer>
+    <div id="footer">
+      <p>서비스 이용약관 | 개인정보 처리방침 | 회사 안내</p>
+      <p><b>고객센터</b> | 02-123-1234</p>
+      <p><b>주식회사 오이마켓</b> | 부산광역시 남구 용소로 45</p>
+      <p><b>사업자 등록번호</b> 123-00-12345</p><br>
+      <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
+    </div>
+  </footer>
 <!-- <script src="../assets/js/post.js"></script> -->
 </body>
 </html>

@@ -16,7 +16,7 @@ const postSchema = new mongoose.Schema({
     },
     cost: {
       type: Number, // 예시로 숫자 타입 사용, 필요에 따라 변경
-      required: true,
+      required: false,
     },
     location: {
       type: String,

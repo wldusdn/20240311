@@ -92,3 +92,50 @@ h2 {
   border-width: .125rem;
   border-radius: .5rem;
 }
+
+/* 헤더 영역 */
+.header {
+  margin: 10px 15vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header #logo:link, #logo:visited {
+  text-decoration: none;
+  color: #046307;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+}
+.header #logo img{
+  width: 30px;
+}
+.header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header #search_box {
+  width: 12.5rem;
+  height: 25px;
+  margin: 0px 20px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.login_signup a:link, .header a:visited {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+/* 푸터 영역 */
+
+#footer {
+  padding: 10px 20vw;
+  background-color: #ddd;
+  font-size: 12px;
+}

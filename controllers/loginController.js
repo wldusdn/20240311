@@ -15,13 +15,13 @@ const getIndex = asyncHandler(async(req, res) => {
 })
 
 // @desc Get Login page
-// @route GET /
+// @route GET /login
 const getLogin = (req, res) => {
   res.render("login");
 }
 
 // @desc Login user
-// @route POST /
+// @route POST /login
 const loginUser = asyncHandler(async(req, res) => {
   console.log(req.body)
   const {userID, password} = req.body;
@@ -36,7 +36,18 @@ const loginUser = asyncHandler(async(req, res) => {
   }
   const token = jwt.sign({id:user._id}, jwtSecret);
   res.cookie("token", token, {httpOnly:true})
-  return res.redirect("/")
+  // return res.redirect("/loginindex")
+  return res.render("login_index", {user})
+})
+
+// @dexc Get Login main page
+// @route GET /loginindex
+const getLoginIndex = asyncHandler(async (req, res) => {
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+  res.render("login_index", {user})
 })
 
 // @desc Get register page
@@ -65,4 +76,4 @@ const logout = (req,res)=>{
   res.redirect("/")
 }
 
-module.exports = {getIndex, getLogin,loginUser,getRegister,registerUser,logout}
+module.exports = {getIndex, getLogin,loginUser,getRegister,registerUser,logout,getLoginIndex}
