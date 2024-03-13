@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>판매글 페이지</title>
+<link rel="stylesheet" href="/css/post.css">
+</head>
+<body>
+
+<div class="post-container">
+    <section class="post-image">
+        <!-- 상품 이미지 -->
+        <img src="<%= post.postimage  %>" alt="상품 이미지" class="product-img"/>
+    </section>
+    
+    <section class="post-author">
+        <!-- 작성자 프로필 사진 및 정보 -->
+        <img src="https://picsum.photos/id/237/50/50" alt="작성자 프로필" class="profile-img"/>
+        <div class="author-info">
+            <span class="author-name">작성자: 홍길동</span>
+            <span class="transaction-area"><%= post.location %></span>
+        </div>
+    </section>
+    
+    <h1 class="post-title"><%= post.title %></h1>
+    
+    <section class="post-description">
+        <p><%= post.description %></p>
+    </section>
+    
+    <!-- 생략 -->
+
+    <section class="post-comments">
+      <!-- 댓글 입력 섹션 -->
+      <form action="/post" method="post">
+      <div class="comment-input">
+          <img src="https://picsum.photos/id/2/50/50" alt="프로필 이미지" class="profile-img"/>
+          <input type="text" placeholder="댓글을 입력해주세요" class="comment-text" name="commentContent"/>
+          <button type="submit" class="comment-button">작성하기</button>
+      </div>
+      </form>
+      <!-- 댓글 목록 -->
+      <div class="comments-list">
+        <% comments.forEach(comment => { %>
+            <div class="comment">
+                <img src="https://picsum.photos/id/5/50/50" alt="이미지" class="comment-profile-img">
+                <div class="comment-body">
+                    <div class="comment-author"><%= comment.userID %></div>
+                    <div class="comment-content"><%= comment.commentContent %></div>
+                    <div class="comment-date"><%= comment.createdAt %></div>
+                </div>
+            </div>           
+        <%}); %>
+      </div>
+  </section>
+<!-- 생략 -->
+
+    
+    <section class="popular-items">
+        <!-- 인기 매물 상품 이미지들 -->
+        <img src="https://picsum.photos/id/22/100/100" alt="인기 매물1" class="item-img"/>
+        <img src="https://picsum.photos/id/23/100/100" alt="인기 매물2" class="item-img"/>
+        <img src="https://picsum.photos/id/24/100/100" alt="인기 매물3" class="item-img"/>
+        
+    </section>
+</div>
+
+<!-- <script src="../assets/js/post.js"></script> -->
+</body>
+</html>

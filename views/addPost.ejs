@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오이마켓</title>
+</head>
+<body>
+  <form action="/post/add" method="post">
+    <div>
+      <label for="post_title">제목</label><input type="text" id="post_title" name="post_title">
+    </div>
+    <div>
+      <label for="post_price"></label>
+      <input type="text" id="post_price" name="post_price" placeholder="가격을 입력해 주세요.">
+      <input type="checkbox">가격 제안받기
+    </div>
+    <div>
+      <label for="post_desc">자세한 설명</label><input type="text" id="post_desc" name="post_desc">
+    </div>
+    <div>
+      <label for="insert_picture">사진 첨부</label><input type="file" name="post_img">
+    </div>
+    <div>
+      <label for="post_location">거래지역</label><input type="text" id="post_location" name="post_location">
+    </div>
+    <div>
+      <button type="submit">작성하기</button>
+    </div>
+  </form>
+</body>
+</html>
