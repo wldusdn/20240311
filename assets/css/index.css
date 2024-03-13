@@ -75,20 +75,24 @@
 
 
 
-#resent_post {
+#recent_post {
   margin: 30px 20vw;
 }
-#resent_post > p {
+#recent_post > p {
   margin-bottom: 30px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
-#resent_post_grid {
+#recent_post_grid {
   display: grid;
   grid-template-columns: 250px 250px 250px;
   grid-template-rows: 350px;
   justify-content:space-between;
+}
+#recent_post_link:link, #recent_post_link:visited {
+  text-decoration: none;
+  color: #000;
 }
 .grid_content_image img {
   border-radius: 10px;
@@ -96,15 +100,15 @@
 .grid_content_info {
   padding: 5px;
 }
-.resent_post_title {
+.recent_post_title {
   font-size: 14px;
 }
-.resent_post_price {
+.recent_post_price {
   font-size: 12px;
   margin-top: 5px;
   font-weight: bold;
 }
-.resent_post_place {
+.recent_post_place {
   font-size: 12px;
   margin-top: 5px;
 }
