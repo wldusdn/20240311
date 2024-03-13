@@ -91,6 +91,10 @@ main {
   justify-content: center;
   align-items: center;
 }
+.radio_group {
+  text-align: left;
+  margin-left: 1vw;
+}
 /* #post_picture {
   border: 1px solid #ccc; 
   display: inline-block;
