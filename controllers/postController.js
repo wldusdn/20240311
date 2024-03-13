@@ -74,7 +74,7 @@ const addPost = asyncHandler(async(req,res)=>{
    }
     // const userID = req.user;
     const post = await Post.create({
-      user: user._id,
+      user: user.name,
       title: post_title,
       description: post_desc,
       cost: post_price,
