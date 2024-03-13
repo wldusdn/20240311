@@ -11,10 +11,13 @@ const jwtSecret = process.env.JWT_SECRET;//secret키 가져옴
 // @route GET /:id
 const getPost = asyncHandler(async(req,res)=>{
   const post = await Post.findById(req.params.id);
-  console.log(post)
   const comments = await Comment.find({postID:{$eq:req.params.id}});
 
   const token = req.cookies.token;
+  if (!token) {
+    // 토큰이 제공되지 않은 경우 로그인 페이지로 리다이렉트
+    return res.redirect('/login'); 
+  }
   const decodedUser = jwt.verify(token, jwtSecret);
   const userID = decodedUser.id;
   const user = await User.findById(userID);
@@ -68,20 +71,20 @@ const addPost = asyncHandler(async(req,res)=>{
   }
   try {
    // 쿠키에서 토큰 추출
-   const token = req.cookies.token;
+  const token = req.cookies.token;
 
    // 토큰 검증 및 디코딩
-   const decodedUser = jwt.verify(token, jwtSecret);
+  const decodedUser = jwt.verify(token, jwtSecret);
 
    // 디코딩된 토큰에서 사용자 ID 추출
    const userID = decodedUser.id;
 
    // 사용자 ID로 사용자 찾기
-   const user = await User.findById(userID);
+  const user = await User.findById(userID);
 
-   if (!user) {
-     return res.status(404).json({ message: '사용자를 찾을 수 없습니다.' });
-   }
+  if (!user) {
+    return res.status(404).json({ message: '사용자를 찾을 수 없습니다.' });
+  }
     // const userID = req.user;
     const post = await Post.create({
       user: user.name,
@@ -109,7 +112,7 @@ const getMyPost = asyncHandler(async(req,res)=>{
   console.log(userID)
   const posts = await Post.find({user:userID})
 
-  res.render("mypost", {user,posts})
+  res.render("mypost", {user, posts})
 })
 
 module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}

@@ -37,46 +37,18 @@
     <div id="recent_post">
       <p>중고거래 최신 매물</p>
       <div id="recent_post_grid">
-        <a href="#" id="recent_post_link">
-          <div class="grid_content">
-            <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
-            <div class="grid_content_info">
-              <p class="recent_post_title">아이폰13pro 판매합니다</p>
-              <p class="recent_post_price">300,000원</p>
-              <p class="recent_post_place">부산 북구 만덕제2동</p>
+        <% posts.forEach(post => { %>
+          <a href="/post/<%= post._id %>" id="recent_post_link">
+            <div class="grid_content">
+              <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
+              <div class="grid_content_info">
+                <p class="recent_post_title"><%= post.title %></p>
+                <p class="recent_post_price"><%= post.cost %></p>
+                <p class="recent_post_place"><%= post.location %></p>
+              </div>
             </div>
-          </div>
-        </a>
-        <a href="#" id="recent_post_link">
-          <div class="grid_content">
-            <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
-            <div class="grid_content_info">
-              <p class="recent_post_title">아이폰13pro 판매합니다</p>
-              <p class="recent_post_price">300,000원</p>
-              <p class="recent_post_place">부산 북구 만덕제2동</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" id="recent_post_link">
-          <div class="grid_content">
-            <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
-            <div class="grid_content_info">
-              <p class="recent_post_title">아이폰13pro 판매합니다</p>
-              <p class="recent_post_price">300,000원</p>
-              <p class="recent_post_place">부산 북구 만덕제2동</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" id="recent_post_link">
-          <div class="grid_content">
-            <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
-            <div class="grid_content_info">
-              <p class="recent_post_title">아이폰13pro 판매합니다</p>
-              <p class="recent_post_price">300,000원</p>
-              <p class="recent_post_place">부산 북구 만덕제2동</p>
-            </div>
-          </div>
-        </a>
+          </a>
+        <% }) %>
       </div>
     </div>
   </main>
