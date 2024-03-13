@@ -4,29 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>오이마켓</title>
+  <link rel="stylesheet" href="../css/addPost.css">
 </head>
 <body>
-  <form action="#">
-    <div>
-      <label for="post_title">제목</label><input type="text" id="post_title" name="post_tilte">
+  <header>
+    <div class="header">
+      <a href="index.html" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+      <ul>
+        <li>
+          <form action="#">
+            <input type="text" id="search_box" placeholder="물품을 검색해 보세요">
+          </form>
+        </li>
+        <ul class="login_signup">
+          <li><a href="#">로그인</a></li>|
+          <li><a href="#">회원가입</a></li>
+        </ul>
+      </ul>
     </div>
-    <div>
-      <label for="post_price"></label>
-      <input type="text" id="post_price" name="post_price" placeholder="가격을 입력해 주세요.">
-      <input type="checkbox">가격 제안받기
+  </header>
+  
+  <main>
+    <form action="#" id="addPost_form">
+      <h2 id="addPost_form_title">판매글 작성</h2>
+      <div class="addPost_input_group">
+        <label for="post_title">제목</label><input type="text" id="post_title" name="post_tilte">
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_price">판매 가격</label>
+        <input type="text" id="post_price" name="post_price" placeholder="판매 가격을 입력해 주세요.">
+        <label for="post_price_checkbox"></label>
+        <div class="checkbox_group"><input type="checkbox" id="post_price_checkbox">가격 제안받기</div>
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_desc">자세한 설명</label><textarea id="post_desc" name="post_desc"></textarea>
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_picture">사진 첨부하기</label><input type="file" id="post_picture">
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_desc">
+      </div>
+      <div class="addPost_input_group">
+        <input type="submit" id="post_submit" value="작성 완료">
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div id="footer">
+      <p>서비스 이용약관 | 개인정보 처리방침 | 회사 안내</p>
+      <p><b>고객센터</b> | 02-123-1234</p>
+      <p><b>주식회사 오이마켓</b> | 부산광역시 남구 용소로 45</p>
+      <p><b>사업자 등록번호</b> 123-00-12345</p><br>
+      <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
     </div>
-    <div>
-      <label for="post_desc">자세한 설명</label><input type="text" id="post_desc" name="post_desc">
-    </div>
-    <div>
-      <label for="insert_picture">사진 첨부</label><input type="file">
-    </div>
-    <div>
-      <label for="post_location"><input type="text" id="post_location" name="post_desc"></label>
-    </div>
-    <div>
-      <input type="submit" value="작성 완료">
-    </div>
-  </form>
+  </footer>
+  <script src="../js/addPost.js"></script>
 </body>
 </html>

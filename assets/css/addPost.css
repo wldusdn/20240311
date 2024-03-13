@@ -1,3 +1,119 @@
 * {
-  
+  margin: 0px;
+  padding: 0px;
+}
+
+/* 헤더 영역 */
+.header {
+  margin: 10px 15vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header #logo:link, #logo:visited {
+  text-decoration: none;
+  color: #046307;
+  font-weight: bold;
+  font-size: 1.25rem;
+  display: flex;
+}
+.header #logo img{
+  width: 30px;
+}
+.header ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header #search_box {
+  width: 12.5rem;
+  height: 25px;
+  margin: 0px 20px;
+  padding: 5px 10px;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.login_signup a:link, .header a:visited {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+/* 메인 영역 */
+main {
+  height: 800px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+}
+#addPost_form {
+  margin: 0px 20vw;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+#addPost_form_title {
+  text-align: center;
+}
+.addPost_input_group {
+  margin-top: 20px;
+}
+.addPost_input_group > label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+.addPost_input_group > input {
+  width: 50vw;
+  height: 30px;
+  padding: 0px 5px;
+}
+#post_desc {
+  width: 50vw;
+  height: 120px;
+  padding: 10px 5px;
+  resize: none;
+}
+#post_price_checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.checkbox_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* #post_picture {
+  border: 1px solid #ccc; 
+  display: inline-block;
+  padding: 6px 12px;
+} */
+#post_submit {
+  width: 51vw;
+  border: none;
+  border-radius: 5px;
+  background-color: #5c6bc0;
+  color: #fff;
+  cursor: pointer;
+}
+#post_submit:hover {
+  background-color: #3f51b5;
+}
+
+
+
+
+/* 푸터 영역 */
+#footer {
+  padding: 10px 20vw;
+  background-color: #ddd;
+  font-size: 12px;
 }
