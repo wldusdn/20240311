@@ -39,7 +39,7 @@
       <p>중고거래 최신 매물</p>
       <div id="recent_post_grid">
         <% posts.forEach(post => { %>
-          <a href="#" id="recent_post_link">
+          <a href="/post/<%= post._id %>" id="recent_post_link">
             <div class="grid_content">
               <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
               <div class="grid_content_info">
