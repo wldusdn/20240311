@@ -11,7 +11,6 @@ const jwtSecret = process.env.JWT_SECRET;//secret키 가져옴
 // @route GET /:id
 const getPost = asyncHandler(async(req,res)=>{
   const post = await Post.findById(req.params.id);
-  console.log(post)
   const comments = await Comment.find({postID:{$eq:req.params.id}});
 
   const token = req.cookies.token;
@@ -109,7 +108,7 @@ const getMyPost = asyncHandler(async(req,res)=>{
   console.log(userID)
   const posts = await Post.find({user:userID})
 
-  res.render("mypost", {user,posts})
+  res.render("mypost", {user, posts})
 })
 
 module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}

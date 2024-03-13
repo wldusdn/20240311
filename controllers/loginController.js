@@ -10,8 +10,8 @@ const mongoose = require("mongoose");
 // @desc Get main page
 // @route GET /
 const getIndex = asyncHandler(async(req, res) => {
-  const posts = await Post.find()
-  res.render("index",{posts:posts});
+  const posts = await Post.find();
+  res.render("index",{posts});
 })
 
 // @desc Get Login page
@@ -43,11 +43,12 @@ const loginUser = asyncHandler(async(req, res) => {
 // @dexc Get Login main page
 // @route GET /loginindex
 const getLoginIndex = asyncHandler(async (req, res) => {
-  const token = req.cookies.token;
-  const decodedUser = jwt.verify(token, jwtSecret);
-  const userID = decodedUser.id;
-  const user = await User.findById(userID);
-  res.render("login_index", {user})
+    const posts = await Post.find();
+    const token = req.cookies.token;
+    const decodedUser = jwt.verify(token, jwtSecret);
+    const userID = decodedUser.id;
+    const user = await User.findById(userID);
+    res.render("login_index", { user, posts:posts }); // 확인: posts 변수가 올바르게 전달되었는지
 })
 
 // @desc Get register page
