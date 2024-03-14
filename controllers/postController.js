@@ -61,14 +61,11 @@ const getPostadd = asyncHandler(async (req, res)=>{
 // @desc Create post
 // @route Post /:id
 const addPost = asyncHandler(async(req,res)=>{
-  console.log(req.body)
   const {post_title, post_price, post_desc, post_category, post_location } = req.body;
   if(!post_title || !post_desc || !post_category || !post_location){
     return res.status(400).send("필수값이 입력되지 않았습니다")
   }
-  if(post_price === ''){
-    post_price ="제안받음"
-  }
+  const price = post_price || "제안받음";
   try {
    // 쿠키에서 토큰 추출
   const token = req.cookies.token;
@@ -90,7 +87,7 @@ const addPost = asyncHandler(async(req,res)=>{
       user: user.name,
       title: post_title,
       description: post_desc,
-      cost: post_price,
+      cost: price,
       location: post_location,
       category: post_category,
     });
