@@ -27,7 +27,18 @@
 <div class="post-container">
     <section class="post-image">
         <!-- 상품 이미지 -->
-        <img src="https://picsum.photos/id/237/50/50" alt="상품 이미지" class="product-img"/>
+        <% if (post.category === "전자기기" ) { %>
+          <img src="/img/electronics.png" alt="" style="width: 400px; background-color: antiquewhite;">
+        <% } %>
+        <% if (post.category === "가구" ) { %>
+          <img src="/img/furniture.png" alt="" style="width: 400px; background-color: antiquewhite;">
+        <% } %>
+        <% if (post.category === "의류" ) { %>
+          <img src="/img/clothes.png" alt="" style="width: 400px; background-color: antiquewhite;">
+        <% } %>
+        <% if (post.category === "책" ) { %>
+          <img src="/img/book.png" alt="" style="width: 400px; background-color: antiquewhite;">
+        <% } %>
     </section>
     
     <section class="post-author">
