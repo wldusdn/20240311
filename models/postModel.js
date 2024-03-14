@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    postimage: {
+    category: {
       type: String, // 예시로 문자열 타입 사용, 필요에 따라 변경
       required: true,
     },
