@@ -102,7 +102,6 @@ const user = await User.findById(userID);
 
 // @desc Get mypost page
 // @route GET /mypost/:id
-
 const getMyPost = asyncHandler(async(req,res)=>{
   const user = await User.findById(req.params.id)
   const userID = user.userID

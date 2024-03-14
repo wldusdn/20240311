@@ -1,6 +1,8 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const router = express.Router();
 const {getIndex, getLogin,loginUser,getRegister,registerUser,logout,getLoginIndex} = require("../controllers/loginController")
+router.use(cookieParser());
 
 router.route("/")
 .get(getIndex)
