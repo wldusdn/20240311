@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>검색 결과</title>
+<link rel="stylesheet" href="/css/search.css">
+<script src="search.js"></script>
+</head>
+<header>
+  <div class="header">
+    <a href="/loginindex" id="logo"><img src="/img/logo.png" alt=""><p>오이마켓</p></a>
+    <ul>
+      <li>
+        <form action="#">
+          <input type="text" id="search_box" placeholder="물품을 검색해 보세요">
+        </form>
+      </li>
+      <ul class="login_signup">
+        <li><a href="/post/add">판매하기</a></li>|
+        <li><a href="/post/mypost/<%= user._id %>">내 판매글</a></li>|
+        <li><a href="/logout">로그아웃</a></li>
+      </ul>
+    </ul>
+  </div>
+</header>
+
+<body>
+<!-- 검색결과가 없는 경우
+    <div class="search-container">
+        <div id="search-results">
+            <h2>'${keyword}'에 대한 검색결과가 없습니다.</h2>
+            <ul>
+              <li>단어의 철자가 정확한지 확인해 보세요.</li>
+              <li>한글을 영어로 혹은 영어를 한글로 입력했는지 확인해 보세요.</li>
+              <li>일반적인 검색어로 다시 검색해 보세요.</li>
+              <li>두 단어 이상의 검색어인 경우, 띄어쓰기를 확인해 보세요.</li>
+            </ul>
+        </div>
+    </div> -->
+
+<!-- 검색결과가 있는 경우 -->
+    <div class="main-container">
+      <% let searchResultFound = false; %>
+      <% posts.forEach(post => { %>
+        <% if (post.title.includes(searchID)) {%>
+          <% searchResultFound = true; %>
+    <div class="post-container">
+        <form>
+        <div class="input-group">
+            <!-- <p>상품 이미지</p> -->
+        <div class="product-image">
+          <% if (post.category === "전자기기" ) { %>
+            <img src="/img/electronics.png" alt="" style="width: 250px; background-color: antiquewhite;">
+          <% } %>
+          <% if (post.category === "가구" ) { %>
+            <img src="/img/furniture.png" alt="" style="width: 250px; background-color: antiquewhite;">
+          <% } %>
+          <% if (post.category === "의류" ) { %>
+            <img src="/img/clothes.png" alt="" style="width: 250px; background-color: antiquewhite;">
+          <% } %>
+          <% if (post.category === "책" ) { %>
+            <img src="/img/book.png" alt="" style="width: 250px; background-color: antiquewhite;">
+          <% } %>
+        </div>
+        </div>
+        <div class="input-group">
+        <span style="font-weight: bold; font-size: 1.3rem;">
+            <%= post.title %>
+        </span>
+        </div>
+        <div class="input-group">
+            <p><%= post.description %></p>
+            <p>가격 : <%= post.cost %></p>
+        <div id="detail-content">
+            </div>
+        </div>
+    </form>
+    </div>
+    <% } %>
+      <% }) %>
+      <% if (!searchResultFound) { %>
+        <div id="no_serach_result">해당하는 검색 결과가 존재하지 않습니다.</div>
+    <% } %>
+</div>
+
+<footer>
+  <div id="footer">
+    <p>서비스 이용약관 | 개인정보 처리방침 | 회사 안내</p>
+    <p><b>고객센터</b> | 02-123-1234</p>
+    <p><b>주식회사 오이마켓</b> | 부산광역시 남구 용소로 45</p>
+    <p><b>사업자 등록번호</b> 123-00-12345</p><br>
+    <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
+  </div>
+</footer>
+</body>
+</html>

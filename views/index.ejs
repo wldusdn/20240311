@@ -40,7 +40,19 @@
         <% posts.forEach(post => { %>
           <a href="/post/<%= post._id %>" id="recent_post_link">
             <div class="grid_content">
-              <div class="grid_content_image"><img src="https://picsum.photos/id/180/250/250" alt=""></div>
+              <div class="grid_content_image">
+                <% if (post.category === "전자기기" ) { %>
+                  <img src="/img/electronics.png" alt="" style="width: 250px; background-color: antiquewhite;">
+                <% } %>
+                <% if (post.category === "가구" ) { %>
+                  <img src="/img/furniture.png" alt="" style="width: 250px; background-color: antiquewhite;">
+                <% } %>
+                <% if (post.category === "의류" ) { %>
+                  <img src="/img/clothes.png" alt="" style="width: 250px; background-color: antiquewhite;">
+                <% } %>
+                <% if (post.category === "책" ) { %>
+                  <img src="/img/book.png" alt="" style="width: 250px; background-color: antiquewhite;">
+                <% } %>                </div>
               <div class="grid_content_info">
                 <p class="recent_post_title"><%= post.title %></p>
                 <p class="recent_post_price"><%= post.cost %></p>
