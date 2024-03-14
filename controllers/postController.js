@@ -74,18 +74,17 @@ const addPost = asyncHandler(async(req,res)=>{
   const decodedUser = jwt.verify(token, jwtSecret);
 
    // 디코딩된 토큰에서 사용자 ID 추출
-const userID = decodedUser.id;
+   const userID = decodedUser.id;
 
 // 사용자 ID로 사용자 찾기
-const user = await User.findById(userID);
-
+const user = await User.findById(userID); 
   if (!user) {
     return res.status(404).json({ message: '사용자를 찾을 수 없습니다.' });
   }
     // const userID = req.user;
     const post = await Post.create({
-        user: user.name,
-        title: post_title,
+      user: user.name,
+      title: post_title,
       description: post_desc,
       cost: price,
       location: post_location,
@@ -102,6 +101,7 @@ const user = await User.findById(userID);
 
 // @desc Get mypost page
 // @route GET /mypost/:id
+
 const getMyPost = asyncHandler(async(req,res)=>{
   const user = await User.findById(req.params.id)
   const userID = user.userID
@@ -110,5 +110,7 @@ const getMyPost = asyncHandler(async(req,res)=>{
 
   res.render("mypost", {user, posts})
 })
+
+
 
 module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}
