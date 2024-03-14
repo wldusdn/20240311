@@ -111,4 +111,20 @@ const getMyPost = asyncHandler(async(req,res)=>{
   res.render("mypost", {user, posts})
 })
 
-module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}
+// @desc Get Search page
+// @route Get /search/:id
+
+const getSearchPost = asyncHandler(async (req,res) => {
+  // console.log(req.params.id)
+  console.log(req.query.id)
+  const searchID = req.query.id
+  const posts = await Post.find();
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+
+  res.render("search",{searchID, posts, user})
+})
+
+module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost}
