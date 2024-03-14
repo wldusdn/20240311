@@ -62,8 +62,8 @@ const getPostadd = asyncHandler(async (req, res)=>{
 // @route Post /:id
 const addPost = asyncHandler(async(req,res)=>{
   console.log(req.body)
-  const {post_title, post_price, post_desc, post_picture, post_location } = req.body;
-  if(!post_title || !post_desc || !post_picture || !post_location){
+  const {post_title, post_price, post_desc, post_category, post_location } = req.body;
+  if(!post_title || !post_desc || !post_category || !post_location){
     return res.status(400).send("필수값이 입력되지 않았습니다")
   }
   if(post_price === ''){
@@ -92,7 +92,7 @@ const addPost = asyncHandler(async(req,res)=>{
       description: post_desc,
       cost: post_price,
       location: post_location,
-      postimage: post_picture,
+      category: post_category,
     });
 
     // res.status(201).json(post);
