@@ -24,6 +24,7 @@ const getLogin = (req, res) => {
 // @route POST /login
 const loginUser = asyncHandler(async(req, res) => {
   console.log(req.body)
+  const posts = await Post.find();
   const {userID, password} = req.body;
   const user = await User.findOne({userID})
   console.log(user)
@@ -37,18 +38,18 @@ const loginUser = asyncHandler(async(req, res) => {
   const token = jwt.sign({id:user._id}, jwtSecret);
   res.cookie("token", token, {httpOnly:true})
   // return res.redirect("/loginindex")
-  return res.render("login_index", {user})
+  return res.render("login_index", {user:user , posts:posts})
 })
 
 // @dexc Get Login main page
 // @route GET /loginindex
 const getLoginIndex = asyncHandler(async (req, res) => {
-    const posts = Post.find();
+    const posts = await Post.find();
     const token = req.cookies.token;
     const decodedUser = jwt.verify(token, jwtSecret);
     const userID = decodedUser.id;
     const user = await User.findById(userID);
-    res.render("login_index", { user, posts });
+    res.render("login_index", { user:user, posts:posts });
 })
 
 // @desc Get register page
