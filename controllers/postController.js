@@ -83,6 +83,7 @@ const user = await User.findById(userID);
   }
     // const userID = req.user;
     const post = await Post.create({
+      userID: user.userID,
       user: user.name,
       title: post_title,
       description: post_desc,
@@ -106,7 +107,7 @@ const getMyPost = asyncHandler(async(req,res)=>{
   const user = await User.findById(req.params.id)
   const userID = user.userID
   console.log(userID)
-  const posts = await Post.find({user:userID})
+  const posts = await Post.find({userID:userID})
 
   res.render("mypost", {user, posts})
 })
