@@ -12,8 +12,8 @@
       <a href="/loginindex" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
       <ul>
         <li>
-          <form action="/post/search/search">
-            <input type="text" id="search_box" name="id" placeholder="물품을 검색해 보세요">
+          <form action="#">
+            <input type="text" id="search_box" placeholder="물품을 검색해 보세요">
           </form>
         </li>
         <ul class="login_signup">
@@ -26,19 +26,19 @@
   </header>
   
   <main>
-    <form action="/post/add" method="post" id="addPost_form">
+    <form action="/post/task/<%= post._id %>?_method=PUT" method="post" id="addPost_form">
       <h2 id="addPost_form_title">판매글 작성</h2>
       <div class="addPost_input_group">
-        <label for="post_title">제목</label><input type="text" id="post_title" name="post_title">
+        <label for="post_title">제목</label><input type="text" id="post_title" name="post_title" value="<%= post.title %>">
       </div>
       <div class="addPost_input_group">
         <label for="post_price">판매 가격</label>
-        <input type="text" id="post_price" name="post_price" placeholder="판매 가격을 입력해 주세요.">
+        <input type="text" id="post_price" name="post_price" value="<%= post.cost %>">
         <label for="post_price_checkbox"></label>
         <div class="checkbox_group"><input type="checkbox" id="post_price_checkbox">가격 제안받기</div>
       </div>
       <div class="addPost_input_group">
-        <label for="post_desc">자세한 설명</label><textarea id="post_desc" name="post_desc"></textarea>
+        <label for="post_desc">자세한 설명</label><textarea id="post_desc" name="post_desc"><%= post.description %></textarea>
       </div>
       <div class="addPost_input_group">
         <label for="post_category">물품 카테고리 선택</label>
@@ -50,10 +50,10 @@
         </div>
       </div>
       <div class="addPost_input_group">
-        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_location">
+        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_location" value="<%= post.location %>">
       </div>
       <div class="addPost_input_group">
-        <input type="submit" id="post_submit" value="작성 완료">
+        <input type="submit" id="post_submit" value="수정하기">
       </div>
     </form>
   </main>
@@ -67,6 +67,6 @@
       <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
     </div>
   </footer>
-  <script src="../js/addPost.js"></script>
+  <script src="/js/appPost.js"></script>
 </body>
 </html>
