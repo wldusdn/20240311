@@ -16,6 +16,7 @@ router.route("/:id")
 .post(checkLogin, addComment)
 .delete(deletePost)
 
+
 //post/mypost/id값
 router.route("/mypost/:id")
 .get(getMyPost)
