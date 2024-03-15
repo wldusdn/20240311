@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const cookieParser = require("cookie-parser");
 const checkLogin = require("../middlewares/checkLogin");
-const {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost} = require("../controllers/postController")
+const {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost, UpdatePost} = require("../controllers/postController")
 router.use(cookieParser());
 
 //post/add
@@ -26,5 +26,6 @@ router.route("/search/:id")
 //post/task/:id
 router.route("/task/:id")
 .get(getUpdatePost)
+.put(UpdatePost)
 
 module.exports = router;

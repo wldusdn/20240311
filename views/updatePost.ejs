@@ -26,7 +26,7 @@
   </header>
   
   <main>
-    <form action="/post/add" method="post" id="addPost_form">
+    <form action="/post/task/<%= post._id %>?_method=PUT" method="post" id="addPost_form">
       <h2 id="addPost_form_title">판매글 작성</h2>
       <div class="addPost_input_group">
         <label for="post_title">제목</label><input type="text" id="post_title" name="post_title" value="<%= post.title %>">
@@ -67,6 +67,6 @@
       <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
     </div>
   </footer>
-  <script src="../js/addPost.js"></script>
+  <script src="/js/appPost.js"></script>
 </body>
 </html>
