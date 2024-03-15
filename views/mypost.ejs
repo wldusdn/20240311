@@ -58,7 +58,7 @@
                 </div>
                 <div class="input-group" style="text-align: right;">
                     <a href="/post/task/<%= post._id %>"><button class="signup-button">수정하기</button></a>
-                    <button type="button" class="delete-button">삭제하기</button>
+                    <form action="/post/<%= post._id %>?_method=DELETE" method="POST"><button type="submit" class="delete-button">삭제하기</button></form>
                 </div>
             </div>
         <% }) %>

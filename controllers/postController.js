@@ -166,5 +166,19 @@ const UpdatePost = asyncHandler(async(req, res)=>{
   res.redirect(`../${post._id}`)
 })
 
-
-module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost, UpdatePost}
+// @desc Delete a post
+// @route DELETE /post/:id
+const deletePost = asyncHandler(async(req,res)=>{
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  //id 기준으로 찾기
+  const post = await Post.findById(req.params.id)
+  const commentID = post._id
+  console.log(commentID)
+  const comment = await Comment.deleteMany({postID: commentID})
+  await Post.findByIdAndDelete(req.params.id);
+  // res.status(200).send(`delete:${req.params.id}`)
+  res.redirect(`/post/mypost/${userID}`)
+})
+module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost, UpdatePost, deletePost}
