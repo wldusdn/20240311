@@ -17,7 +17,7 @@ body {
 }
 
 .post-container {
-  width: 335px;
+  width: 455px;
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -85,7 +85,7 @@ h2 {
 }
 
 .product-image {
-  width: 250px;
+  width: 380px;
   /* height: 15rem; */
   border:none;
   /* border-color: #ddd; */
