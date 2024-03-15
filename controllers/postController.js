@@ -128,7 +128,7 @@ const getSearchPost = asyncHandler(async (req,res) => {
   res.render("search",{searchID, posts, user})
 })
 
-// @desc Get a contact
+// @desc Get a post
 // @route Get /task/:id
 const getUpdatePost = asyncHandler(async(req,res)=>{
   const token = req.cookies.token;
@@ -142,6 +142,8 @@ const getUpdatePost = asyncHandler(async(req,res)=>{
   res.render("updatePost", {user:user, post:post});
 })
 
+// @desc updtate a post
+// @route PUT /task/:id
 const UpdatePost = asyncHandler(async(req, res)=>{
   const {post_title, post_price, post_desc, post_category, post_location } = req.body;
   if(!post_title || !post_desc || !post_category || !post_location){
