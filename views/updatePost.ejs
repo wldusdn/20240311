@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="header">
-      <a href="/loginindex" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+      <a href="/loginindex" id="logo"><img src="/img/logo.png" alt=""><p>오이마켓</p></a>
       <ul>
         <li>
           <form action="#">
@@ -43,10 +43,20 @@
       <div class="addPost_input_group">
         <label for="post_category">물품 카테고리 선택</label>
         <div class="radio_group">
-          <input type="radio" name="post_category" id="electronics" value="전자기기"> 전자기기
-          <input type="radio" name="post_category" id="furniture" value="가구"> 가구
-          <input type="radio" name="post_category" id="clothes" value="의류"> 의류
-          <input type="radio" name="post_category" id="book" value="책"> 책
+          
+          <input type="radio" name="post_category" id="electronics" value="전자기기" <% if (post.category === "전자기기") { %> checked <% } %>> 전자기기
+          <input type="radio" name="post_category" id="furniture" value="가구" <% if (post.category === "가구") { %> checked <% } %>> 가구
+          <input type="radio" name="post_category" id="clothes" value="의류" <% if (post.category === "의류") { %> checked <% } %>> 의류
+          <input type="radio" name="post_category" id="book" value="책" <% if (post.category === "책") { %> checked <% } %>> 책
+          <% if (post.category === "가구") { %>
+
+          <%} %>
+          <% if (post.category === "의류") { %>
+
+          <%} %>
+          <% if (post.category === "책") { %>
+
+          <%} %> 
         </div>
       </div>
       <div class="addPost_input_group">
@@ -67,6 +77,6 @@
       <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
     </div>
   </footer>
-  <script src="/js/appPost.js"></script>
+  <script src="/js/addPost.js"></script>
 </body>
 </html>
