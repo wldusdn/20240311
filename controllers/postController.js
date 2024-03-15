@@ -112,11 +112,6 @@ const getMyPost = asyncHandler(async(req,res)=>{
   res.render("mypost", {user, posts})
 })
 
-<<<<<<< HEAD
-
-
-module.exports = {getPost, addComment, getPostadd, addPost, getMyPost}
-=======
 // @desc Get Search page
 // @route Get /search/:id
 
@@ -134,4 +129,3 @@ const getSearchPost = asyncHandler(async (req,res) => {
 })
 
 module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost}
->>>>>>> a97b3ab688551143d64076a706897097ab01e583

@@ -15,6 +15,7 @@ router.route("/:id")
 .get(getPost)
 .post(checkLogin, addComment)
 
+
 //post/mypost/id값
 router.route("/mypost/:id")
 .get(getMyPost)
