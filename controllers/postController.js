@@ -128,4 +128,43 @@ const getSearchPost = asyncHandler(async (req,res) => {
   res.render("search",{searchID, posts, user})
 })
 
-module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost}
+// @desc Get a post
+// @route Get /task/:id
+const getUpdatePost = asyncHandler(async(req,res)=>{
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+  const post = await Post.findById(req.params.id);
+  // console.log(req.params.id)
+  // res.status(200).send(contact)
+  console.log(post._id)
+  res.render("updatePost", {user:user, post:post});
+})
+
+// @desc updtate a post
+// @route PUT /task/:id
+const UpdatePost = asyncHandler(async(req, res)=>{
+  const {post_title, post_price, post_desc, post_category, post_location } = req.body;
+  if(!post_title || !post_desc || !post_category || !post_location){
+    return res.status(400).send("필수값이 입력되지 않았습니다")
+  }
+  const price = post_price || "제안받음";
+
+  //id 기준으로 찾기
+  const post = await Post.findById(req.params.id);
+
+  //원하는 값 수정해서 넣기
+  post.title = post_title;
+  post.cost = price;
+  post.description = post_desc;
+  post.category = post_category;
+  post.location = post_location;
+  post.save()//수정 후 저장
+  console.log(post)
+  // res.status(200).send(`update:${req.params.id}`)
+  res.redirect(`../${post._id}`)
+})
+
+
+module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost, UpdatePost}

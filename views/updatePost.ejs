@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오이마켓</title>
+  <link rel="stylesheet" href="/css/addPost.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <a href="/loginindex" id="logo"><img src="../img/logo.png" alt=""><p>오이마켓</p></a>
+      <ul>
+        <li>
+          <form action="#">
+            <input type="text" id="search_box" placeholder="물품을 검색해 보세요">
+          </form>
+        </li>
+        <ul class="login_signup">
+          <li><a href="/post/add">판매하기</a></li>|
+          <li><a href="/post/mypost/<%= user._id %>">내 판매글</a></li>|
+          <li><a href="/logout">로그아웃</a></li>
+        </ul>
+      </ul>
+    </div>
+  </header>
+  
+  <main>
+    <form action="/post/task/<%= post._id %>?_method=PUT" method="post" id="addPost_form">
+      <h2 id="addPost_form_title">판매글 작성</h2>
+      <div class="addPost_input_group">
+        <label for="post_title">제목</label><input type="text" id="post_title" name="post_title" value="<%= post.title %>">
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_price">판매 가격</label>
+        <input type="text" id="post_price" name="post_price" value="<%= post.cost %>">
+        <label for="post_price_checkbox"></label>
+        <div class="checkbox_group"><input type="checkbox" id="post_price_checkbox">가격 제안받기</div>
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_desc">자세한 설명</label><textarea id="post_desc" name="post_desc"><%= post.description %></textarea>
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_category">물품 카테고리 선택</label>
+        <div class="radio_group">
+          <input type="radio" name="post_category" id="electronics" value="전자기기"> 전자기기
+          <input type="radio" name="post_category" id="furniture" value="가구"> 가구
+          <input type="radio" name="post_category" id="clothes" value="의류"> 의류
+          <input type="radio" name="post_category" id="book" value="책"> 책
+        </div>
+      </div>
+      <div class="addPost_input_group">
+        <label for="post_location">거래희망장소</label><input type="text" id="post_location" name="post_location" value="<%= post.location %>">
+      </div>
+      <div class="addPost_input_group">
+        <input type="submit" id="post_submit" value="수정하기">
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div id="footer">
+      <p>서비스 이용약관 | 개인정보 처리방침 | 회사 안내</p>
+      <p><b>고객센터</b> | 02-123-1234</p>
+      <p><b>주식회사 오이마켓</b> | 부산광역시 남구 용소로 45</p>
+      <p><b>사업자 등록번호</b> 123-00-12345</p><br>
+      <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
+    </div>
+  </footer>
+  <script src="/js/appPost.js"></script>
+</body>
+</html>

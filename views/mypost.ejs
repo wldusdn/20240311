@@ -27,7 +27,6 @@
     <div class="main-container">
         <% posts.forEach(post => { %>
             <div class="post-container">
-                <form>
                 <div class="input-group">
                     <!-- <p>상품 이미지</p> -->
                     <% if (post.category === "전자기기" ) { %>
@@ -58,10 +57,9 @@
                     </div>
                 </div>
                 <div class="input-group" style="text-align: right;">
-                    <button type="button" class="signup-button">수정하기</button>
+                    <a href="/post/task/<%= post._id %>"><button class="signup-button">수정하기</button></a>
                     <button type="button" class="delete-button">삭제하기</button>
                 </div>
-                </form>
             </div>
         <% }) %>
 </div>
