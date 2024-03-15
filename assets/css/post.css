@@ -151,6 +151,8 @@ body {
 }
 .header #logo img{
   width: 30px;
+  height: 30px;
+  /* margin: 20px 0px; */
 }
 .header ul {
   list-style: none;
@@ -167,11 +169,14 @@ body {
   border-radius: 5px;
   font-size: 12px;
 }
-.login_signup a:link, .header a:visited {
+.login_signup a:link, .login_signup a:visited {
   text-decoration: none;
   color: #aaa;
   font-size: 14px;
   margin: 0px 10px;
+}
+#logo_text {
+  margin: 0px;
 }
 
 /* 푸터 영역 */
