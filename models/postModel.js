@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 // const commentSchema = require("./commentModel");
 
 const postSchema = new mongoose.Schema({
+    userID:{
+      type:String,
+      required: true,
+    },
     user:{
       type: String,
       required: true,
