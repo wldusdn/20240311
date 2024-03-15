@@ -128,4 +128,18 @@ const getSearchPost = asyncHandler(async (req,res) => {
   res.render("search",{searchID, posts, user})
 })
 
-module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost}
+// @desc Get a contact
+// @route Get /task/:id
+const getUpdatePost = asyncHandler(async(req,res)=>{
+  const token = req.cookies.token;
+  const decodedUser = jwt.verify(token, jwtSecret);
+  const userID = decodedUser.id;
+  const user = await User.findById(userID);
+  const post = await Post.findById(req.params.id);
+  // console.log(req.params.id)
+  // res.status(200).send(contact)
+  console.log(post._id)
+  res.render("updatePost", {user:user, post:post});
+})
+
+module.exports = {getPost, addComment, getPostadd, addPost, getMyPost, getSearchPost, getUpdatePost}
