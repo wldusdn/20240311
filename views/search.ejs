@@ -46,7 +46,7 @@
         <% if (post.title.includes(searchID)) {%>
           <% searchResultFound = true; %>
     <div class="post-container">
-        <form>
+        <form action="/post/<%= post._id %>" id="search_form" onclick="searchForm()">
         <div class="input-group">
             <!-- <p>상품 이미지</p> -->
         <div class="product-image">
@@ -93,5 +93,13 @@
     <b>제휴문의 | 광고문의 | PR문의 | IR문의</b>
   </div>
 </footer>
+
+<script>
+  function searchForm() {
+    // 클릭한 폼의 action 속성값(링크)을 가져와서 이동
+    const formAction = document.getElementById('search_form').getAttribute('action');
+    window.location.href = formAction;
+  }
+  </script>
 </body>
 </html>

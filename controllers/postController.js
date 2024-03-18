@@ -74,7 +74,7 @@ const addPost = asyncHandler(async(req,res)=>{
   const decodedUser = jwt.verify(token, jwtSecret);
 
    // 디코딩된 토큰에서 사용자 ID 추출
-   const userID = decodedUser.id;
+  const userID = decodedUser.id;
 
 // 사용자 ID로 사용자 찾기
 const user = await User.findById(userID); 
